@@ -6,6 +6,8 @@
 
 # BlueJ files
 *.ctxt
+.DS_Store
+project.greenfoot
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
