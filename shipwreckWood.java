@@ -14,6 +14,7 @@ public class shipwreckWood extends Actor
      */
     public void act()
     {
+// coding the wood so that it spawns at the start at a good angle and doesn't spawn on top of another piece of wood
         checkCollision();
         move(1);
         setRotation(90);
