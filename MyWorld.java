@@ -30,7 +30,7 @@ public class MyWorld extends World
 
         for (int i = 0; i < NUMBER_OF_SHIPWRECK; i++){
             int x = Greenfoot.getRandomNumber(getWidth());
-            addObject(new shipwreckWood(), x, 4);
+            addObject(new ShipwreckWood(), x, 4);
         }
 
         for (int count = 0; count < NUMBER_OF_SEAWEED; count++){
