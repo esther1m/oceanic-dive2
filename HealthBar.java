@@ -39,9 +39,9 @@ public class HealthBar extends Actor
     public GreenfootImage updateHealthBar(){
         GreenfootImage bar = new GreenfootImage(52, 12);
         setImage(bar);
-        getImage().drawRect(0,0,51,11);
-        getImage().setColor(Color.GREEN);
-        getImage().fillRect(1,1,health,10);
+        bar.drawRect(0,0,51,11);
+        bar.setColor(Color.GREEN);
+        bar.fillRect(1,1,health,10);
         return bar;
     }
 
