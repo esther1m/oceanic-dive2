@@ -19,7 +19,6 @@ public class HealthBar extends Actor
     }
     public void act()
     {
-
         MyWorld myWorld = new MyWorld();
         setLocation(myWorld.diver.getX() - 5, myWorld.diver.getY() - 50);
         loseHealth();
