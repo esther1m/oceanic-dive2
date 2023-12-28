@@ -55,6 +55,9 @@ public class HealthBar extends Actor
         if (hitByshipwreckWood(diver2) == true) {
             health--;
             updateHealthBar();
+        } else if (hitBySeaweed(diver2) == true) {
+            health--;
+            updateHealthBar();
         }
         if(health<=0) {
             //getWorld().showText("Game Over! \n You survived for " + (myWorld.diver.time/60) + " seconds", getWorld().getWidth()/2 , getWorld().getHeight()/2);
@@ -76,6 +79,10 @@ public class HealthBar extends Actor
     public boolean hitByshipwreckWood(Actor actor) {
 
         return isTouching(ShipwreckWood.class);
+    }
+
+    public boolean hitBySeaweed(Actor actor){
+        return isTouching(seaweed.class);
     }
 
     public void updateDiverPosition(){
