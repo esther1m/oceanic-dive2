@@ -13,44 +13,72 @@ public class HealthBar extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     int health = 50;
-    public HealthBar()
-    {
-        setImage(new GreenfootImage(52, 12));
-        getImage().drawRect(0,0,51,11);
-        getImage().setColor(Color.GREEN);
-        getImage().fillRect(1,1,health,10);
+    private boolean canLoseHealth = true;
+    private int cooldown = 10;
+    GreenfootImage bar; 
+    MyWorld myWorld;
+    Diver diver2;
+
+    
+    public HealthBar(MyWorld world) {
+        myWorld = world;
+        bar = new GreenfootImage(52, 12);
+        
+        Diver diver2 = myWorld.getDiver();
+
+        updateHealthBar();
         
     }
-    public void act()
-    {
-        setImage(new GreenfootImage(52, 12));
-        getImage().drawRect(0,0,51,11);
-        getImage().setColor(Color.GREEN);
-        getImage().fillRect(1,1,health,10);
-        World world = getWorld();
-        MyWorld myWorld = new MyWorld();
-        setLocation(myWorld.diver.getX() - 5, myWorld.diver.getY() - 50);
-        loseHealth();
-    }
-    public void loseHealth() {
-        World world = getWorld();
-        MyWorld myWorld = new MyWorld();
-        if (hitByshipwreckWood(myWorld.diver) == true)
-        {
-            health--;
+
+    public void act() {
+        updateDiverPosition();
+        if (diver2 != null){
+            setLocation(diver2.getX() - 5, diver2.getY() - 50);
+            checkWoodCollision();
         }
-        if(health<=0)
-        {
+    }
+
+    private void checkWoodCollision(){
+        if (canLoseHealth && hitByshipwreckWood(diver2)){
+            loseHealth();
+            canLoseHealth = false;
+        } else if (! canLoseHealth) {
+            cooldown--;
+            if (cooldown <= 0) {
+                cooldown = 30;
+                canLoseHealth = true;
+            }
+        }
+    }
+
+    public void loseHealth() {
+        if (hitByshipwreckWood(diver2) == true) {
+            health--;
+            updateHealthBar();
+        }
+        if(health<=0) {
             //getWorld().showText("Game Over! \n You survived for " + (myWorld.diver.time/60) + " seconds", getWorld().getWidth()/2 , getWorld().getHeight()/2);
             Greenfoot.stop();
         }
     }
 
+    public void updateHealthBar(){
+        bar.clear();
+        //setImage(bar);
+        bar.drawRect(0,0,51,11);
+        bar.setColor(Color.GREEN);
+        bar.fillRect(1,1,health,10);
+        setImage(bar);
+        //return bar;
+    }
+
+
     public boolean hitByshipwreckWood(Actor actor) {
-        if (isTouching(ShipwreckWood.class) == true) {
-            return true;
-        } else {
-           return false;
-        }
+
+        return isTouching(ShipwreckWood.class);
+    }
+
+    public void updateDiverPosition(){
+        diver2 = myWorld.getDiver();
     }
 }
