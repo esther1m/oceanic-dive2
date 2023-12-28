@@ -12,7 +12,7 @@ public class MyWorld extends World
     private static final int NUMBER_OF_SHIPWRECK = 7;
     private static final int NUMBER_OF_SEAWEED = 10;
     Diver diver = new Diver();
-    HealthBar healthBar = new HealthBar();
+    HealthBar healthBar = new HealthBar(this);
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -42,4 +42,9 @@ public class MyWorld extends World
         }
 
     }
+
+    public Diver getDiver(){
+            return diver;
+        }
+
 }

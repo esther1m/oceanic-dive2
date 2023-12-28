@@ -13,21 +13,46 @@ public class HealthBar extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     int health = 50;
+    private boolean canLoseHealth = true;
+    private int cooldown = 10;
     GreenfootImage bar; 
     MyWorld myWorld;
-    public HealthBar() {
+    Diver diver2;
+
+    
+    public HealthBar(MyWorld world) {
+        myWorld = world;
         bar = new GreenfootImage(52, 12);
-        myWorld = new MyWorld();
+        
+        Diver diver2 = myWorld.getDiver();
+
         updateHealthBar();
         
     }
+
     public void act() {
-        setLocation(myWorld.diver.getX() - 5, myWorld.diver.getY() - 50);
-        loseHealth();
+        updateDiverPosition();
+        if (diver2 != null){
+            setLocation(diver2.getX() - 5, diver2.getY() - 50);
+            checkWoodCollision();
+        }
+    }
+
+    private void checkWoodCollision(){
+        if (canLoseHealth && hitByshipwreckWood(diver2)){
+            loseHealth();
+            canLoseHealth = false;
+        } else if (! canLoseHealth) {
+            cooldown--;
+            if (cooldown <= 0) {
+                cooldown = 30;
+                canLoseHealth = true;
+            }
+        }
     }
 
     public void loseHealth() {
-        if (hitByshipwreckWood(myWorld.diver) == true) {
+        if (hitByshipwreckWood(diver2) == true) {
             health--;
             updateHealthBar();
         }
@@ -51,5 +76,9 @@ public class HealthBar extends Actor
     public boolean hitByshipwreckWood(Actor actor) {
 
         return isTouching(ShipwreckWood.class);
+    }
+
+    public void updateDiverPosition(){
+        diver2 = myWorld.getDiver();
     }
 }
