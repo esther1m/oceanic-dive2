@@ -57,7 +57,7 @@ public class HealthBar extends Actor
             updateHealthBar();
         }
         if(health<=0) {
-            //getWorld().showText("Game Over! \n You survived for " + (myWorld.diver.time/60) + " seconds", getWorld().getWidth()/2 , getWorld().getHeight()/2);
+            myWorld.showText("Game Over! \n You survived for " + (myWorld.time/60) + " seconds", getWorld().getWidth()/2 , getWorld().getHeight()/2);
             Greenfoot.stop();
         }
     }

@@ -11,6 +11,7 @@ public class MyWorld extends World
     //initialising the amount of shipwrecks to be repeated and the amount of seaweed to be in the game
     private static final int NUMBER_OF_SHIPWRECK = 7;
     private static final int NUMBER_OF_SEAWEED = 10;
+    int time = 0;
     Diver diver = new Diver();
     HealthBar healthBar = new HealthBar(this);
     /**
@@ -23,6 +24,8 @@ public class MyWorld extends World
         // Create a new world with 1000x600 cells with a cell size of 1x1 pixels.
         super(1000, 600, 1); 
         populate();
+
+        
     }
         
     public void populate(){
@@ -41,6 +44,10 @@ public class MyWorld extends World
             addObject(new seaweed(), randomX, randomY);
         }
 
+    }
+
+    public void act() {
+        time++;
     }
 
     public Diver getDiver(){
