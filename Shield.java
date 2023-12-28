@@ -19,14 +19,12 @@ public class Shield extends Actor
     MyWorld myWorld;
     Diver diver3;
     HealthBar health;
+    KrabbyPatty krabbyPatty;
 
     
     public Shield(MyWorld world) {
-        myWorld = world;
-    
-        
+        myWorld = world;        
         diver3 = myWorld.getDiver();
-
         health = myWorld.getHealthBar();
         
     }
