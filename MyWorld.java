@@ -23,6 +23,7 @@ public class MyWorld extends World
         
         // Create a new world with 1000x600 cells with a cell size of 1x1 pixels.
         super(1000, 600, 1); 
+        Greenfoot.setSpeed(60);
         populate();
 
         
@@ -52,7 +53,7 @@ public class MyWorld extends World
     }
 
     public void checkNextLevel() {
-        if (time == 12000 || time >= 12000){
+        if (time/60 == 240 || time/60 >= 240){
             showText("Success! You beat Level 1! ", getWidth()/2 ,getHeight()/2);
             Greenfoot.stop();
         }
