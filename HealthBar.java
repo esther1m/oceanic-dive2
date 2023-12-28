@@ -13,8 +13,8 @@ public class HealthBar extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     int health = 50;
-    private boolean canLoseHealth = true;
-    private int cooldown = 10;
+    boolean canLoseHealth = true;
+    int cooldown = 10;
     GreenfootImage bar; 
     MyWorld myWorld;
     Diver diver2;
