@@ -60,7 +60,11 @@ public class MyWorld extends World
     }
 
     public Diver getDiver(){
-            return diver;
-        }
+        return diver;
+    }
+    
+    public HealthBar getHealthBar() {
+        return healthBar;
+    }
 
 }
