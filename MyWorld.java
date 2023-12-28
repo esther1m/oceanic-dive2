@@ -48,6 +48,14 @@ public class MyWorld extends World
 
     public void act() {
         time++;
+        checkNextLevel();
+    }
+
+    public void checkNextLevel() {
+        if (time == 12000 || time >= 12000){
+            showText("Success! You beat Level 1! ", getWidth()/2 ,getHeight()/2);
+            Greenfoot.stop();
+        }
     }
 
     public Diver getDiver(){
