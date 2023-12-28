@@ -11,9 +11,15 @@ public class MyWorld extends World
     //initialising the amount of shipwrecks to be repeated and the amount of seaweed to be in the game
     private static final int NUMBER_OF_SHIPWRECK = 7;
     private static final int NUMBER_OF_SEAWEED = 10;
+
     int time = 0;
+    int timeInternal = 0;
+    int benchmark =10;
+    boolean foodPresent = false;
+
     Diver diver = new Diver();
     HealthBar healthBar = new HealthBar(this);
+    KrabbyPatty food = new KrabbyPatty();
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -49,7 +55,32 @@ public class MyWorld extends World
 
     public void act() {
         time++;
+        timeInternal++;
         checkNextLevel();
+
+        if (timeInternal/ 60 >= benchmark) {
+            if (foodPresent) {
+                removeObject(food);
+                benchmark = 5; // Wait for 5 seconds next time
+                timeInternal = 0;
+                foodPresent = false;
+            } else {
+                int randx = Greenfoot.getRandomNumber(getWidth());
+                int randy = Greenfoot.getRandomNumber(getHeight());
+                food = new KrabbyPatty();
+                addObject(food, randx, randy);
+                foodPresent = true;
+                benchmark = 30; // Wait for 30 seconds next time
+                timeInternal =0;
+            }
+        }
+
+        if (food!= null && foodPresent) {
+            if (food.checkCollision()){
+                benchmark = 1;
+            }
+            
+        }
     }
 
     public void checkNextLevel() {
