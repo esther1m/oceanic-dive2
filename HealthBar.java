@@ -13,8 +13,8 @@ public class HealthBar extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     int health = 50;
-    private boolean canLoseHealth = true;
-    private int cooldown = 10;
+    boolean canLoseHealth = true;
+    int cooldown = 10;
     GreenfootImage bar; 
     Level1 myWorld;
     Diver diver2;
@@ -72,7 +72,7 @@ public class HealthBar extends Actor
         updateHealthBar();
 
         if(health<=0) {
-            //getWorld().showText("Game Over! \n You survived for " + (myWorld.diver.time/60) + " seconds", getWorld().getWidth()/2 , getWorld().getHeight()/2);
+            myWorld.showText("Game Over! \n You survived for " + (myWorld.time/60) + " seconds", getWorld().getWidth()/2 , getWorld().getHeight()/2);
             Greenfoot.stop();
         }
     }
