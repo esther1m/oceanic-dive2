@@ -16,11 +16,11 @@ public class HealthBar extends Actor
     boolean canLoseHealth = true;
     int cooldown = 10;
     GreenfootImage bar; 
-    MyWorld myWorld;
+    Level1 myWorld;
     Diver diver2;
 
     
-    public HealthBar(MyWorld world) {
+    public HealthBar(Level1 world) {
         myWorld = world;
         bar = new GreenfootImage(52, 12);
         
@@ -29,12 +29,14 @@ public class HealthBar extends Actor
         updateHealthBar();
         
     }
+    //hgjgjy
 
     public void act() {
         updateDiverPosition();
         if (diver2 != null){
             setLocation(diver2.getX() - 5, diver2.getY() - 50);
             checkWoodCollision();
+            checkSeaweedCollision();
         }
     }
 
@@ -51,14 +53,24 @@ public class HealthBar extends Actor
         }
     }
 
-    public void loseHealth() {
-        if (hitByshipwreckWood(diver2) == true) {
-            health--;
-            updateHealthBar();
-        } else if (hitBySeaweed(diver2) == true) {
-            health--;
-            updateHealthBar();
+    private void checkSeaweedCollision(){
+        if (canLoseHealth && hitBySeaweed(diver2)){
+            loseHealth();
+            canLoseHealth = false;
+        } else if (! canLoseHealth) {
+            cooldown--;
+            if (cooldown <= 0) {
+                cooldown = 30;
+                canLoseHealth = true;
+            }
         }
+    }
+
+    public void loseHealth() {
+        
+        health--;
+        updateHealthBar();
+
         if(health<=0) {
             myWorld.showText("Game Over! \n You survived for " + (myWorld.time/60) + " seconds", getWorld().getWidth()/2 , getWorld().getHeight()/2);
             Greenfoot.stop();
