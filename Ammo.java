@@ -12,8 +12,8 @@ public class Ammo extends Actor
      * Act - do whatever the Ammo wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    int count = 0;
-    boolean collision = false;
+
+    boolean checker = false;
 
     /**
      * Act - do whatever the KrabbyPatty wants to do. This method is called whenever
@@ -23,16 +23,17 @@ public class Ammo extends Actor
     public void act()
     {
         // act method constantly loops checkCollision so it is always running
-        checkCollision();
+        checkAmmoCollision();
     }
 
     /* checkCollision checks the collision of a Krabby Patty object with the diver and returns true if it has collided */
 
-    public boolean checkCollision() {
+    public boolean checkAmmoCollision() {
         if (isTouching(Diver.class)) {
-            collision =  true;
-            count++;
+            checker =  true;
+        } else {
+            checker = false;
         }
-        return collision;
+        return checker;
     }
 }
