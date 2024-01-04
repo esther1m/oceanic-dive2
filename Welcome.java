@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Welcome extends World
 {
+    PlayButton button = new PlayButton();
+    
 
     /**
      * Constructor for objects of class Welcome.
@@ -17,13 +19,23 @@ public class Welcome extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 600, 1); 
-        PlayButton button = new PlayButton();
         addObject(button, 495, 474);
+        act();
+        
     }
 
-   /*  public void act() {
-        if (Greenfoot.mouseClicked(this) == true) {
+    public boolean checkClick(){
+        if (button.click()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+     public void act() {
+        checkClick();
+        if (checkClick()) {
             Greenfoot.setWorld(new World2());
         }
-    }*/
+    }
 }

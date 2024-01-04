@@ -13,9 +13,18 @@ public class PlayButton extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() {
+        click();
         // Add your action code here.
-        if (Greenfoot.mouseClicked(this) == true) {
+       /*  if (Greenfoot.mouseClicked(this) == true) {
             Greenfoot.setWorld(new World2());
+        } */
+    }
+
+    public boolean click() {
+        if (Greenfoot.mouseClicked(this) == true) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
