@@ -69,52 +69,52 @@ public class DiverShooter extends Actor
         //if the mouse is pressed and the gun button and upgrade is equal to 1 a projectile will shoot from the gun
         if(Greenfoot.mousePressed(null) && gunButton.gunUpgrade == 1)
         {
-            Projectile projectile = new Projectile(); // ensures a new projectile can be fired each time the mouse is pressed
+            Bullet projectile = new Bullet(); // ensures a new projectile can be fired each time the mouse is pressed
             getWorld().addObject(projectile, getX(), getY()); 
             projectile.setRotation(getRotation()); // enables the referenced projectile to have the same rotation as the diver's rotation
             projectile.move(25); // allows the projectiles to move
         }
         //if the mouse is pressed and the gun button upgrade is equal to 2 then dual projectiles will be fired from the gun 
         if(Greenfoot.mousePressed(null) && gunButton.gunUpgrade == 2){
-            Projectile projectile = new Projectile();
+            Bullet projectile = new Bullet();
             getWorld().addObject(projectile, getX(), getY());
             projectile.setRotation(getRotation() - 5); // the referenced projectile will have the a - 5 rotation of the divers rotation 
             projectile.move(20);
-            Projectile projectile2 = new Projectile();
+            Bullet projectile2 = new Bullet();
             getWorld().addObject(projectile2, getX(), getY());
             projectile2.setRotation(getRotation() + 5); // the referenced projectile will have the a + 5 rotation of the divers rotation
             projectile2.move(20);
         }
         //if the mouse is pressed and the gun button upgrade is equal to 3 then three projectiles will be fired from the gun per click
         if(Greenfoot.mousePressed(null) && gunButton.gunUpgrade == 3){
-            Projectile projectile = new Projectile();
+            Bullet projectile = new Bullet();
             getWorld().addObject(projectile, getX(), getY());
             projectile.setRotation(getRotation() - 5); // the referenced projectile will have the a - 5 rotation of the divers rotation
             projectile.move(20);
-            Projectile projectile2 = new Projectile();
+            Bullet projectile2 = new Bullet();
             getWorld().addObject(projectile2, getX(), getY());
             projectile2.setRotation(getRotation() + 5); // the referenced projectile will have the a + 5 rotation of the divers rotation
             projectile2.move(20);
-            Projectile projectile3 = new Projectile();
+            Bullet projectile3 = new Bullet();
             getWorld().addObject(projectile3, getX(), getY()); // enables the referenced projectile to have the same rotation as the diver's rotation
             projectile3.setRotation(getRotation());
             projectile3.move(20);
         }
         //if the mouse is pressed and the gun button upgrade is equal to 4 then four projectiles will be fired from the gun per click
         if(Greenfoot.mousePressed(null) && gunButton.gunUpgrade == 4){
-            Projectile projectile = new Projectile();
+            Bullet projectile = new Bullet();
             getWorld().addObject(projectile, getX(), getY());
             projectile.setRotation(getRotation() - 5); // the referenced projectile will have the a - 5 rotation of the divers rotation
             projectile.move(20);
-            Projectile projectile2 = new Projectile();
+            Bullet projectile2 = new Bullet();
             getWorld().addObject(projectile2, getX(), getY());
             projectile2.setRotation(getRotation() + 5); // the referenced projectile will have the a + 5 rotation of the divers rotation
             projectile2.move(20);
-            Projectile projectile3 = new Projectile();
+            Bullet projectile3 = new Bullet();
             getWorld().addObject(projectile3, getX(), getY()); // enables the referenced projectile to have the same rotation as the diver's rotation
             projectile3.setRotation(getRotation());
             projectile3.move(20);
-            Projectile projectile4 = new Projectile();
+            Bullet projectile4 = new Bullet();
             getWorld().addObject(projectile4, getX(), getY()); // the referenced projectile will have + 15 of the diver's rotation
             projectile4.setRotation(getRotation() + 15);
             projectile4.move(20);
@@ -129,27 +129,27 @@ public class DiverShooter extends Actor
     {
         if(powerUp.powerUpCount > 99 && powerUpTimer < 30 && Greenfoot.isKeyDown("SPACE"))
         {
-            Projectile projectile = new Projectile();
+            Bullet projectile = new Bullet();
             getWorld().addObject(projectile, getX(), getY());
             projectile.setRotation(getRotation() - 60);
             projectile.move(20);
-            Projectile projectile2 = new Projectile();
+            Bullet projectile2 = new Bullet();
             getWorld().addObject(projectile2, getX(), getY());
             projectile2.setRotation(getRotation() + 60);
             projectile2.move(20);
-            Projectile projectile3 = new Projectile();
+            Bullet projectile3 = new Bullet();
             getWorld().addObject(projectile3, getX(), getY());
             projectile3.setRotation(getRotation());
             projectile3.move(20);
-            Projectile projectile4 = new Projectile();
+            Bullet projectile4 = new Bullet();
             getWorld().addObject(projectile4, getX(), getY());
             projectile4.setRotation(getRotation() - 180);
             projectile4.move(20);
-            Projectile projectile5 = new Projectile();
+            Bullet projectile5 = new Bullet();
             getWorld().addObject(projectile5, getX(), getY());
             projectile5.setRotation(getRotation() + 120);
             projectile5.move(20);
-            Projectile projectile6 = new Projectile();
+            Bullet projectile6 = new Bullet();
             getWorld().addObject(projectile6, getX(), getY());
             projectile6.setRotation(getRotation() - 120);
             projectile6.move(20);
