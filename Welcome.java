@@ -20,22 +20,8 @@ public class Welcome extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 600, 1); 
         addObject(button, 495, 474);
-        act();
         
     }
 
-    public boolean checkClick(){
-        if (button.click()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-     public void act() {
-        checkClick();
-        if (checkClick()) {
-            Greenfoot.setWorld(new World2());
-        }
-    }
+    
 }
