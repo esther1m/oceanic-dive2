@@ -30,12 +30,15 @@ public class Level1 extends World
     boolean foodPresent = false;
     boolean bulletsPresent = false;
     boolean proceed = false;
+    boolean click;
+    
 
     Diver diver = new Diver();
     HealthBar healthBar = new HealthBar(this);
     KrabbyPatty food = new KrabbyPatty();
     Ammo bullets = new Ammo();
     Shield shield = new Shield(this);
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -47,6 +50,9 @@ public class Level1 extends World
         super(1000, 600, 1); 
         Greenfoot.setSpeed(60);
         populate();
+        
+        
+        
 
         
     }
@@ -80,6 +86,11 @@ public class Level1 extends World
         timeInternal++;
         timeInternal2++;
         checkNextLevel();
+
+        while(Greenfoot.isKeyDown("P"))
+        {
+            Greenfoot.delay(1);
+        }
 
         /* this selection statement checks if enough time has passed to either remove or add a krabby patty.
          * first it checks if there is already a krabby patty existing, in which case it removes it and resets the internal timer, benchmark and the foodPresent status
@@ -169,29 +180,31 @@ public class Level1 extends World
         if (timeInternal2/ 60 >= benchmark2) {
             if (bulletsPresent) {
                 removeObject(bullets);
-                benchmark2 = 5; // Wait for 5 seconds next time
+                benchmark2 = 20; // Wait for 5 seconds next time
                 timeInternal2 = 0;
                 bulletsPresent = false;
             } else {
                 int randx2 = Greenfoot.getRandomNumber(getWidth());
                 int randy2 = Greenfoot.getRandomNumber(getHeight());
                 addObject(bullets, randx2, randy2);
+                bullets.checkAmmoCollision();
                 bulletsPresent = true;
-                benchmark2 = 15; // Wait for 30 seconds next time
+                benchmark2 = 30; // Wait for 30 seconds next time
                 timeInternal2 =0;
             }
         }
 
         if (bullets!= null && bulletsPresent) {
-            if (bullets.checkCollision()){
-                benchmark2 = 1;
-                bulletsCount++;
-                bullets.collision = false;
+            if (bullets.checkAmmoCollision()){
+                bullets.checker = false;
+                bulletsCount = bulletsCount +1;
+                showText("Ammo collected: " + bulletsCount,120,36);
+                benchmark2 = 5;
             }
             
         }
 
-        if (bulletsCount >= 15) {
+        if (bulletsCount == 7) {
             timeInternal2 = 0;
             removeObject(bullets);
             bulletsPresent = false;
@@ -202,18 +215,21 @@ public class Level1 extends World
     }
 
     public void checkNextLevel() {
-        if (time/60 == 240 || time/60 >= 240){
+        if (time/60 == 280 || time/60 >= 280){
             showText("Success! You beat Level 1! ", getWidth()/2 ,getHeight()/2);
-            if (proceed){
+            if (proceed) {
                 showText("Amazing, you have collected enough ammo. You can move onto the next level!", getWidth()/2 , getHeight()/2 - 20);
-                showText("Click anywhere to move onto the nect level", getWidth()/2 , getHeight()/2 + 20);
+                showText("Click anywhere to move onto the next level", getWidth()/2 , getHeight()/2 + 20);
+                Greenfoot.delay(600);
+                    Greenfoot.setWorld(new Level2Objects());
+                
             } else {
                 showText("Unfortunately, you have not collected enough ammo to move onto the next level. Try again next time :(", getWidth()/2 , getHeight()/2 - 20);
             }
             Greenfoot.stop();
         }
     }
-
+    
     public Diver getDiver(){
         return diver;
     }
