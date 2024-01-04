@@ -23,7 +23,7 @@ public class level2intstruction extends World
     public void act() {
         showText("Click anywhere to START LEVEL 2 ", 500 , 571);
         if (Greenfoot.mouseClicked(this) == true) {
-            Greenfoot.setWorld(new Level1());
+            Greenfoot.setWorld(new LevelTwo());
         }
     }
     
