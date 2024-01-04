@@ -34,7 +34,7 @@ public class Creature extends Actor
     public void hitByProjectile()
     {
         // Creating a reference to the projectile that is intersecting the creature
-        Actor projectile = getOneIntersectingObject(Projectile.class); 
+        Actor projectile = getOneIntersectingObject(Bullet.class); 
         // if the projectile intersects the creature the if statment will be executed 
         if(projectile != null) 
         {
