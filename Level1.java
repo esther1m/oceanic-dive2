@@ -30,7 +30,7 @@ public class Level1 extends World
     boolean foodPresent = false;
     boolean bulletsPresent = false;
     boolean proceed = false;
-    boolean click;
+   
     
 
     Diver diver = new Diver();
@@ -70,7 +70,7 @@ public class Level1 extends World
         for (int count = 0; count < NUMBER_OF_SEAWEED; count++){
             int randomX = Greenfoot.getRandomNumber(getWidth());
             int randomY = (Greenfoot.getRandomNumber(99) + 500);
-            addObject(new seaweed(), randomX, randomY);
+            addObject(new Seaweed(), randomX, randomY);
         }
 
     }

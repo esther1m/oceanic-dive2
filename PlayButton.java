@@ -16,7 +16,7 @@ public class PlayButton extends Actor
         
         // Add your action code here.
         if (Greenfoot.mouseClicked(this) == true) {
-            Greenfoot.setWorld(new World2());
+            Greenfoot.setWorld(new Storyline());
         } 
     }
 

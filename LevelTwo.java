@@ -25,6 +25,8 @@ public class LevelTwo extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 600, 1); 
+        // Resets the speed as the speed was faster in level
+        Greenfoot.setSpeed(50);
         mainPlayer = new DiverShooter(gunButton, powerUp);
         addObject(mainPlayer, getWidth()/2, getHeight()/2);
         //sets position of the visual counter on the game

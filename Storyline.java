@@ -1,30 +1,29 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class level2intstruction here.
+ * Write a description of class World2 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class level2intstruction extends World
+public class Storyline extends World
 {
 
     /**
-     * Constructor for objects of class level2intstruction.
+     * Constructor for objects of class World2.
      * 
      */
-    public level2intstruction()
+    public Storyline()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(1000, 600, 1);
+        super(1000, 600, 1); 
         act();
     }
 
     public void act() {
-        showText("Click anywhere to START LEVEL 2 ", 500 , 571);
+        showText("Click anywhere to continue ", 500 , 571);
         if (Greenfoot.mouseClicked(this) == true) {
-            Greenfoot.setWorld(new LevelTwo());
+            Greenfoot.setWorld(new Level1Objects());
         }
     }
-    
 }

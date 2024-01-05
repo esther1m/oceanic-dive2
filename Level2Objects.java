@@ -23,7 +23,7 @@ public class Level2Objects extends World
     public void act() {
         showText("Click anywhere to continue ", 500 , 571);
         if (Greenfoot.mouseClicked(this) == true) {
-            Greenfoot.setWorld(new level2intstruction());
+            Greenfoot.setWorld(new Level2Instruction());
         }
     }
     

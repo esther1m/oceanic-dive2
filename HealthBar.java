@@ -94,7 +94,7 @@ public class HealthBar extends Actor
     }
 
     public boolean hitBySeaweed(Actor actor){
-        return isTouching(seaweed.class);
+        return isTouching(Seaweed.class);
     }
 
     public void updateDiverPosition(){
