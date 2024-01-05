@@ -63,7 +63,7 @@ public class Shield extends Actor
         health.canLoseHealth = false;
         health.cooldown = 150;
 
-        if (time/60 >= 45){
+        if (time/60 >= 70){
             time =0;
             myWorld.foodCount = 0;
             checker = true;
