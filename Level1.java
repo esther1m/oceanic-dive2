@@ -86,13 +86,22 @@ public class Level1 extends World
         timeInternal++;
         timeInternal2++;
         checkNextLevel();
+        addRemoveKrabbyPatty();
+        collisionCheck();
+        shieldAdder();
+        shieldRemover();
+        addRemoveAmmo();
+        collisionCheckAmmo();
+        ammoChecker();
 
         while(Greenfoot.isKeyDown("P"))
         {
             Greenfoot.delay(1);
         }
 
-        /* this selection statement checks if enough time has passed to either remove or add a krabby patty.
+    }
+    public void addRemoveKrabbyPatty(){
+         /* this selection statement checks if enough time has passed to either remove or add a krabby patty.
          * first it checks if there is already a krabby patty existing, in which case it removes it and resets the internal timer, benchmark and the foodPresent status
          * if there isn't, it adds a krabby patty object somewhere randomly in the world and sets the benchmark, interal timer and foodPresent variables to their orginal state.
         */
@@ -113,7 +122,8 @@ public class Level1 extends World
                 timeInternal =0;
             }
         }
-
+    }
+    public void collisionCheck () {
         /* this selection statement first checks if there is an existing krabby patty object in the world before continuing with the statement as sometimes greenfoot
          * would have problems when running the nested if statement (it wasn't previously nested)
          * once it is confirmed that krabby patty object exists, it then uses the KrabbyPatty method to check if the diver has collided with it and if so increments
@@ -128,7 +138,9 @@ public class Level1 extends World
             }
             
         }
+    }
 
+    public void shieldAdder(){
         /* this selection statement initialises the shield once the foodCount is 5 (>= used for safeguarding)
          * the internal timer is reset again and the shield is spawned on top of the diver
          * any remaining KrabbyPatty objects are removed, the foodPresent status set to false and foodCount is set to 0
@@ -154,7 +166,9 @@ public class Level1 extends World
             benchmark = 10000;
             foodCount = 0; 
         }
+    }
 
+    public void shieldRemover(){
         /* once again the prerequiste for the statement is checking if the shield actually exists.
          * uses the Shield variables checker to check if the duration of the shield is over yet
          * if true, it resets the KrabbyPatty outcome variable to false as there wouldn't have been a chance for it to reset before the shield
@@ -176,7 +190,9 @@ public class Level1 extends World
                 
             }
         }
+    }
 
+    public void addRemoveAmmo(){
         if (timeInternal2/ 60 >= benchmark2) {
             if (bulletsPresent) {
                 removeObject(bullets);
@@ -193,7 +209,9 @@ public class Level1 extends World
                 timeInternal2 =0;
             }
         }
+    }
 
+    public void collisionCheckAmmo(){
         if (bullets!= null && bulletsPresent) {
             if (bullets.checkAmmoCollision()){
                 bullets.checker = false;
@@ -203,7 +221,9 @@ public class Level1 extends World
             }
             
         }
+    }
 
+    public void ammoChecker(){
         if (bulletsCount == 7) {
             timeInternal2 = 0;
             removeObject(bullets);
@@ -211,7 +231,6 @@ public class Level1 extends World
             benchmark2 = 100000;
             proceed = true;
         }
-
     }
 
     public void checkNextLevel() {
