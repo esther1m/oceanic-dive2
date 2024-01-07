@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class KrabbyPatty here.
+ * KrabbyPatty class checks for any collision with itself consistently
  * 
  * @author (ESTHER MIKHAEL) 
  * @version (v1.0)
@@ -27,7 +27,8 @@ public class KrabbyPatty extends Actor
         checkCollision();
     }
 
-    /* checkCollision checks the collision of a Krabby Patty object with the diver and returns true if it has collided */
+    /* checkCollision checks the collision of a Krabby Patty object with the diver and returns
+    true if it has collided */
 
     public boolean checkCollision() {
         if (isTouching(Diver.class)) {
