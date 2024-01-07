@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class KrabbyPatty here.
  * 
- * @author (ESTHER MIKHAEL) 
+ * @author (ESTHER MIKHAEL)
  * @version (v1.0)
  */
 public class KrabbyPatty extends Actor
