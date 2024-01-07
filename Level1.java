@@ -243,7 +243,8 @@ public class Level1 extends World
                     Greenfoot.setWorld(new Level2Objects());
                 
             } else {
-                showText("Unfortunately, you have not collected enough ammo to move onto the next level. Try again next time :(", getWidth()/2 , getHeight()/2 - 20);
+                showText("Unfortunately, you have not collected enough ammo to move onto the next level.", getWidth()/2 , getHeight()/2 + 20);
+                showText("Try again next time :(",getWidth()/2 , getHeight()/2 + 40);
             }
             Greenfoot.stop();
         }
