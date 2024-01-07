@@ -3,22 +3,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Ammo here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (ESTHER MIKHAEL)
+ * @version (v1.0)
  */
 public class Ammo extends Actor
 {
-    /**
-     * Act - do whatever the Ammo wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-
+    //checker variable to prevent multiple collisions being detected
     boolean checker = false;
-
-    /**
-     * Act - do whatever the KrabbyPatty wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
 
     public void act()
     {
@@ -26,7 +17,9 @@ public class Ammo extends Actor
         checkAmmoCollision();
     }
 
-    /* checkCollision checks the collision of a Krabby Patty object with the diver and returns true if it has collided */
+    /* checkCollision checks the collision of an Ammo object with the diver and returns true if it has collided
+     * it also makes sure that there hasn't just been a collision by using the boolean condition checker
+     */
 
     public boolean checkAmmoCollision() {
         if (isTouching(Diver.class)) {
