@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Diver here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (ESTHER MIKHAEL) 
+ * @version (v1.0)
  */
 public class Diver extends Actor
 {
@@ -14,6 +14,7 @@ public class Diver extends Actor
      */
     public void act()
     {
+        //moves the diver with the keys
         if(Greenfoot.isKeyDown("D"))
         {
             setRotation(0);
