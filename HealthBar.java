@@ -12,7 +12,7 @@ public class HealthBar extends Actor
      * Act - do whatever the HealthBar wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    int health = 50;
+    int health = 100;
     boolean canLoseHealth = true;
     int cooldown = 10;
     GreenfootImage bar; 
@@ -38,6 +38,7 @@ public class HealthBar extends Actor
             checkWoodCollision();
             checkSeaweedCollision();
         }
+        updateHealthBar();
     }
 
     private void checkWoodCollision(){

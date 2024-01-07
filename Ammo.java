@@ -29,10 +29,11 @@ public class Ammo extends Actor
     /* checkCollision checks the collision of a Krabby Patty object with the diver and returns true if it has collided */
 
     public boolean checkAmmoCollision() {
-        if (isTouching(Diver.class)) {
-            checker =  true;
-        } else {
-            checker = false;
+        if (checker && !isTouching(Diver.class)) {
+            checker =  false;
+        }  
+        if (!checker && isTouching(Diver.class)){
+            checker = true;
         }
         return checker;
     }
