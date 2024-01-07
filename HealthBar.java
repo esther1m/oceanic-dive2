@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class HealthBar here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * HealthBar contains all the methods responsible for initialising and updating the decreasing healthbar
+ *
+ * @author (ESTHER MIKHAEL)
+ * @version (v1.0)
  */
 public class HealthBar extends Actor
 {
@@ -73,7 +73,13 @@ public class HealthBar extends Actor
             }
         }
     }
-
+    /*method checks for seaweed colliding with the diver
+     * checks if the diver has not already collided with an object beforehand
+     * makes sure that it hasnt and that it is currently touching a wood object
+     * calls the lose health method and resets the lose health method to false
+     * if it can't lose health then it will start decreasing the cooldown
+     * once the cooldown reaches 0, it resets and allows the diver to lose health again
+     */
     private void checkSeaweedCollision(){
         if (canLoseHealth && hitBySeaweed(diver2)){
             loseHealth();
@@ -86,7 +92,11 @@ public class HealthBar extends Actor
             }
         }
     }
-
+    /* lose health method
+     * makes the diver lose health by decrementing the health
+     * if their health reaches 0, it will show a gameover message on screen, showing how many seconds they lasted for
+     * it also stops the game so that they can't continue playing
+     */
     public void loseHealth() {
         
         health--;
@@ -97,27 +107,27 @@ public class HealthBar extends Actor
             Greenfoot.stop();
         }
     }
-
+    /* the method that draws the health bar
+     * it will also update the health to show how much health is remaining after they hit an object
+     */
     public void updateHealthBar(){
         bar.clear();
-        //setImage(bar);
         bar.drawRect(0,0,51,11);
         bar.setColor(Color.GREEN);
         bar.fillRect(1,1,health,10);
         setImage(bar);
-        //return bar;
     }
 
-
+    //returns if something is touching the pieces of wood or not
     public boolean hitByshipwreckWood(Actor actor) {
 
         return isTouching(ShipwreckWood.class);
     }
-
+    //returns if something is touching the seaweed or not
     public boolean hitBySeaweed(Actor actor){
         return isTouching(Seaweed.class);
     }
-
+    //makes sure that the current diver's position is correctly recieved and inputted
     public void updateDiverPosition(){
         diver2 = myWorld.getDiver();
     }
