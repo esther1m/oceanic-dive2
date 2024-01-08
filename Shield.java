@@ -36,6 +36,7 @@ public class Shield extends Actor
     }
 
     /* act method - keeps the time running (inside the class) and the position of the diver updated.
+     * if the diver changes the way it faces, so does the shield 
      * it also makes it so that, when called, the shield makes sure the diver cannot lose health until 
      * the timer is up.
      * 
