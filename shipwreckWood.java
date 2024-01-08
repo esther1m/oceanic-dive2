@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Controls how the shipwrecked wood behaves
  * 
- * @author (your name) 
+ * @author (ESTHER MIKHAEL) 
  * @version (a version number or a date)
  */
 public class ShipwreckWood extends Actor
